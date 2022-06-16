@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.text.Font?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="graphics.EditShapesController" vgap="10">
+
+    <padding>
+        <Insets top="10" left="50" right="50" bottom="10"/>
+    </padding>
+
+    <VBox GridPane.rowIndex="0">
+        <Label text="Edit" >
+            <font>
+                <Font size="30"/>
+            </font>
+        </Label>
+        <Separator  prefWidth="900" layoutY="50"/>
+    </VBox>
+    <GridPane GridPane.rowIndex="1" GridPane.columnIndex="0" hgap="50">
+        <GridPane GridPane.rowIndex="1" GridPane.columnIndex="0" hgap="10" vgap="20">
+            <Label text="Background Color" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <ColorPicker fx:id="backgroundColorPicker" onAction="#setBackgroundColor" prefWidth="200" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <Label text="Select shape" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="selectedShape" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="200" promptText="select shape" onAction="#shapeSelected"/>
+
+            <Label fx:id="selectChangeLabel" text="Select change" GridPane.rowIndex="2" GridPane.columnIndex="0" visible="false"/>
+            <ComboBox fx:id="selectChange" GridPane.rowIndex="2" GridPane.columnIndex="1" prefWidth="200" promptText="select change" onAction="#changeAction" visible="false">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="change color"/>
+                        <String fx:value="change size"/>
+                        <String fx:value="change position"/>
+                        <String fx:value="remove"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+
+            <Label fx:id="selectColorLabel" text="Select color" GridPane.rowIndex="3" GridPane.columnIndex="0" visible="false"/>
+            <ComboBox fx:id="selectColor" GridPane.rowIndex="3" GridPane.columnIndex="1" prefWidth="200" promptText="select color" visible="false">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="black"/>
+                        <String fx:value="white"/>
+                        <String fx:value="red"/>
+                        <String fx:value="blue"/>
+                        <String fx:value="green"/>
+                        <String fx:value="yellow"/>
+                        <String fx:value="brown"/>
+                        <String fx:value="gray"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+
+            <Label fx:id="changeFirstSize" text="first" GridPane.rowIndex="3" GridPane.columnIndex="0" visible="false"/>
+            <Slider fx:id="firstSize" GridPane.rowIndex="3" GridPane.columnIndex="1" prefWidth="200" max="400" visible="false"/>
+
+            <Label fx:id="changeSecondSize" text="second" GridPane.rowIndex="4" GridPane.columnIndex="0" visible="false"/>
+            <Slider fx:id="secondSize" GridPane.rowIndex="4" GridPane.columnIndex="1" prefWidth="200" max="400" visible="false"/>
+
+            <Label fx:id="changeXPositionLabel" text="(x) position" GridPane.rowIndex="3" GridPane.columnIndex="0" visible="false"/>
+            <Spinner fx:id="changeXPosition" GridPane.rowIndex="3" GridPane.columnIndex="1" prefWidth="200"  visible="false" min="0" max="800" amountToStepBy="1" editable="true"/>
+
+            <Label fx:id="changeYPositionLabel" text="(y) position" GridPane.rowIndex="4" GridPane.columnIndex="0" visible="false"/>
+            <Spinner fx:id="changeYPosition" GridPane.rowIndex="4" GridPane.columnIndex="1" prefWidth="200"  visible="false" min="0" max="600" amountToStepBy="1" editable="true"/>
+
+            <Label fx:id="colorNotSetError" textFill="red" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+        </GridPane>
+        <GridPane GridPane.rowIndex="1" GridPane.columnIndex="1" vgap="60">
+            <ListView fx:id="information" GridPane.columnIndex="2" prefWidth="300" GridPane.rowIndex="0" minHeight="350" maxHeight="350">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="type:"/>
+                        <String fx:value="name:"/>
+                        <String fx:value="position(x):"/>
+                        <String fx:value="position(y):"/>
+                        <String fx:value="color:"/>
+                    </FXCollections>
+                </items>
+            </ListView>
+            <Button text="apply changes" onMouseClicked="#applyChanges" GridPane.rowIndex="1" GridPane.columnIndex="2" prefWidth="300"/>
+        </GridPane>
+    </GridPane>
+</GridPane>

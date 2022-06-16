@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+
+<GridPane fx:controller="graphics.WelcomeController" xmlns:fx="http://javafx.com/javafx" vgap="10" >
+    <padding>
+        <Insets top="150" left="180"/>
+    </padding>
+    <HBox GridPane.rowIndex="0" alignment="CENTER">
+        <Label textFill="#228B22" text="Welcome to shape drawer!" >
+            <font>
+                <Font size="30"/>
+            </font>
+        </Label>
+    </HBox>
+    <VBox minHeight="100" maxHeight="100" GridPane.rowIndex="1" alignment="CENTER"/>
+    <HBox GridPane.rowIndex="2">
+        <Text text="Enter path here:" >
+            <font>
+                <Font size="12"/>
+            </font>
+        </Text>
+    </HBox>
+    <HBox GridPane.rowIndex="3" alignment="CENTER" >
+        <TextField prefWidth="400" alignment="CENTER" promptText="Enter path here" fx:id="pathEntered"/>
+    </HBox>
+    <HBox GridPane.rowIndex="4" alignment="CENTER">
+        <Button text="Search file" alignment="CENTER" onMouseClicked="#searchFile"/>
+    </HBox>
+    <HBox GridPane.rowIndex="5" alignment="BOTTOM_CENTER">
+        <Label textFill="#FF0000" fx:id="errorLabel">
+            <font>
+                <Font size="12"/>
+            </font>
+        </Label>
+    </HBox>
+</GridPane>

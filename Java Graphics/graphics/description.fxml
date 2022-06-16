@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="graphics.DescriptionController" vgap="15">
+    <padding>
+        <Insets top="20" left="50" right="50"/>
+    </padding>
+    <HBox GridPane.rowIndex="0">
+        <Label text="detected Shapes">
+            <font>
+                <Font size="25"/>
+            </font>
+        </Label>
+    </HBox>
+    <Separator GridPane.rowIndex="1"/>
+    <ListView prefHeight="370" prefWidth="700" GridPane.rowIndex="2" fx:id="descriptionListView"/>
+    <Separator GridPane.rowIndex="3"/>
+    <HBox GridPane.rowIndex="4" alignment="BASELINE_RIGHT">
+        <Button text="draw Shapes" onMouseClicked="#drawShapes"/>
+    </HBox>
+
+</GridPane>
