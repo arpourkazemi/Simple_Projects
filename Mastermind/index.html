@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="favIcon" rel="icon" href="favIcon/1.png" type="image/gif">
+    <link rel="stylesheet" href="styles/css/style.css">
+    <link rel="stylesheet" href="Fontawesome/css/all.min.css">
+    <title>Mastermind</title>
+</head>
+
+<body>
+    <header id="header">
+        <div>
+            <img id="logo" src="favIcon/1.png" alt="logo">
+            <h1>Mastermind</h1>
+        </div>
+        <button type="button" onclick="showNewGameSection()">New Game</button>
+    </header>
+
+
+
+    <main>
+        <section id="gameBoard">
+            <div id="displayPane" data-navstatus="expanded"></div>
+            <div>
+                <div>
+                    <button type="button" id="fillRow">Fill Row</button>
+                    <button type="button" onclick="checkColors()" id="check">Check</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="leaderBoardSection">
+            <h2>Leaderboard</h2>
+            <table>
+                <tr>
+                    <td>rank</td>
+                    <td></td>
+                    <td>user</td>
+                    <td>moves</td>
+                    <td>time</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><img class="profile" src="profile_seyyedparsa.jpg" alt="profile"></td>
+                    <td>Seyyed Parsa</td>
+                    <td>3</td>
+                    <td>0:20</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><img class="profile" src="profile_hamed.jpg" alt="profile"></td>
+                    <td>Hamed</td>
+                    <td>5</td>
+                    <td>0:30</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><img class="profile" src="profile_amirreza.jpg" alt="profile"></td>
+                    <td>Amirreza</td>
+                    <td>7</td>
+                    <td>1:00</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="gameStatsSection">
+            <h2>Stats</h2>
+            <table id="statsTable">
+                <tr>
+                    <td>Minimum Moves:</td>
+                    <td id="statMove">not recorded</td>
+                </tr>
+                <tr>
+                    <td>Best Time:</td>
+                    <td id="statTime"><span id="statTimeMin"></span><span id="statTimeSec"></span>not recorded</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="helpSection">
+            <h2>Help</h2>
+            <p>In this game computer will select a few colors and put them into a specific order! your duty is to Decode
+                that mystery, but you are not alone! we are here to help you! click/touch any black circle to change its
+                color and then just submit your guess, congratulations if black circle appears around! you've found part
+                of the secret code in the right place! if you see white circle around, don't worry! you've guessed the
+                right color but in the wrong place :( try that color in another place, hope you find right one! and at
+                the end if you don't see any reactions, unfortunately neither color nor place is correct! try other
+                colors, you can win!</p>
+        </section>
+    </main>
+
+    <nav id="navBar">
+        <div>
+            <input type="checkbox" name="navBarCollapse">
+            <label for="navBarCollapse">
+                <i title="Collapse" id="collapseIcon" class="fas fa-sign-in-alt"></i>
+                <i title="Expand" id="expandIcon" class="fas fa-sign-out-alt"></i>
+            </label>
+        </div>
+        <ul id="navList">
+            <li class="activeIcon">
+                <i class="fas fa-gamepad-alt iconSolid"></i>
+                <i class="far fa-gamepad-alt iconRegular"></i>
+                <span>Game</span>
+            </li>
+            <li>
+                <i class="fas fa-medal iconSolid"></i>
+                <i class="fal fa-medal iconRegular"></i>
+                <span>Leaderboard</span>
+            </li>
+            <li>
+                <i class="fas fa-chart-pie-alt iconSolid"></i>
+                <i class="fal fa-chart-pie-alt iconRegular"></i>
+                <span>Stats</span>
+            </li>
+            <li>
+                <i class="fas fa-book-open iconSolid HTPIcon navIcon"></i>
+                <i class="far fa-book-open iconRegular HTPIcon navIcon"></i>
+                <span>How to play</span>
+            </li>
+        </ul>
+    </nav>
+
+    <section id="newGame">
+        <div>
+            <h2 id="gameStatus"></h2>
+            <h2 id="newGameStats"></h2>
+            <h2>New Game</h2>
+            <div>
+                Select number of colors for new game
+                <select name="rows" id="gameRows">
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5" selected>5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                </select>
+            </div>
+            <div>
+                <button type="button" onclick="initGame()">Start</button>
+            </div>
+        </div>
+    </section>
+
+
+    <div id="outerColorSelect">
+        <div id="colorSelect">
+            <div id="closeDiv"><i class="fas fa-times"></i></div>
+            <div id="innerColorSelect">
+                <div data-color="orange" class="selectMenu orange"></div>
+                <div data-color="red" class="selectMenu red"></div>
+                <div data-color="green" class="selectMenu green"></div>
+                <div data-color="yellow" class="selectMenu yellow"></div>
+                <div data-color="lightBlue" class="selectMenu lightBlue"></div>
+                <div data-color="darkBlue" class="selectMenu darkBlue"></div>
+                <div data-color="purple" class="selectMenu purple"></div>
+                <div data-color="pink" class="selectMenu pink"></div>
+                <div data-color="gray" class="selectMenu gray"></div>
+            </div>
+            <div id="selectPreview"></div>
+        </div>
+    </div>
+
+
+
+    <div class="pyro">
+        <div class="before"></div>
+        <div class="after"></div>
+    </div>
+
+
+    <audio src="nextRow.mp3" id="nextRowSound"></audio>
+    <audio src="nextColumn.mp3" id="nextColumnSound"></audio>
+    <audio src="winning.mp3" id="winningSound"></audio>
+    <audio src="loosing.mp3" id="loosingSound"></audio>
+</body>
+
+<script src="favIcon/favIcon.js"></script>
+<script src="script.js"></script>
+
+</html>

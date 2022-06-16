@@ -1,0 +1,236 @@
+@mixin shadow {
+  overflow: hidden;
+  backdrop-filter: blur(200px);
+  box-shadow: 0 3rem 5rem rgb(0 0 0 / 25%);
+}
+
+@mixin borderRadius {
+  border-radius: 9px;
+}
+
+@mixin gridSet($row-start, $row-end, $col-start, $col-end) {
+  grid-row: $row-start #{"/"} $row-end;
+  grid-column: $col-start #{"/"} $col-end;
+}
+
+@mixin fill {
+  width: 100%;
+  height: 100%;
+}
+
+@mixin fontStyle($isBold) {
+  font-family: "Nunito", sans-serif;
+  @if ($isBold) {
+    font-weight: bold;
+  }
+}
+
+@mixin portraitGameBoard($hasSideNav) {
+  #displayPane {
+    transform-origin: center;
+    transform: rotateZ(270deg);
+    @if ($hasSideNav) {
+      width: calc((80vh - 40px) * 0.9);
+    } @else {
+      width: calc((70vh - 40px) * 0.9);
+    }
+  }
+
+  #selectPane {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #colorSelect {
+    position: absolute;
+    width: 40%;
+    aspect-ratio: 10/16;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    background-color: $bgColor;
+    @include shadow;
+    @include borderRadius;
+    padding: 10px;
+  }
+
+  #innerColorSelect {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 62.5%;
+  }
+
+  #closeDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    height: 12.5%;
+    margin-right: 5px;
+    overflow: hidden;
+    i {
+      font-size: 6vw;
+    }
+  }
+
+  #selectPreview {
+    width: 100%;
+    display: grid;
+    .outerDiv {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .selectMenu {
+    width: calc((100% / 3) - 10px);
+  }
+
+  #gameBoard {
+    & > div:last-child {
+      width: 100%;
+      & > div:first-child {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@mixin sideNavStyle() {
+  #navList {
+    height: 90vh;
+    li {
+      padding: 0 20px;
+      height: 25%;
+    }
+  }
+}
+
+@mixin landscapeGameBoard() {
+  #displayPane[data-navstatus="expanded"] {
+    max-height: calc(70vh - 40px);
+    width: calc(75vw - 10vh - 40px);
+  }
+  #displayPane[data-navstatus="collapsed"] {
+    max-height: calc(70vh - 40px);
+    width: calc(100vw - 5rem - 10vh - 40px);
+  }
+}
+
+@mixin portraitStyle {
+  // html{
+  //     font-size: 12px;
+  //   }
+  p {
+    font-size: small;
+  }
+  body {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 8fr 1fr;
+  }
+  main {
+    @include gridSet(2, -2, 1, -1);
+  }
+
+  nav {
+    @include gridSet(-2, -1, 1, -1);
+    & > div:first-child {
+      display: none;
+    }
+  }
+
+  #navList {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    li {
+      width: 25%;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      padding: 5px 0;
+      i {
+        padding: 0;
+      }
+      span {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@mixin landscapeStyle {
+  #gameBoard > div:last-child {
+    justify-content: flex-end;
+  }
+
+  #colorSelect {
+    position: absolute;
+    max-width: 20vw;
+    max-height: 70vh;
+    aspect-ratio: 10/16;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    background-color: $bgColor;
+    @include shadow;
+    @include borderRadius;
+    padding: 10px;
+  }
+
+  #innerColorSelect {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 62.5%;
+  }
+
+  #closeDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    height: 12.5%;
+    margin-right: 5px;
+    overflow: hidden;
+    i {
+      font-size: 1.5rem;
+    }
+  }
+
+  #selectPreview {
+    width: 100%;
+    display: grid;
+
+    .outerDiv {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .selectMenu {
+    width: calc((100% / 3) - 10px);
+  }
+  #navList {
+    height: 90vh;
+    li {
+      padding: 0 20px;
+      height: 25%;
+    }
+  }
+
+  #displayPane {
+    width: 100%;
+  }
+}
