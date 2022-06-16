@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>01 - JavaScript Drum Kit</title>
+</head>
+<body>
+    <div class="container">
+        <button onclick="play(this.getAttribute('key'))" key="a" type="button">
+            <span class="letterName">a</span>
+            <span class="description">clap</span>
+        </button>
+        <button onclick="play(this.getAttribute('key'))" key="s" type="button">
+            <span class="letterName">s</span>
+            <span class="description">hihat</span>
+        </button>
+        <button onclick="play(this.getAttribute('key'))" key="d" type="button">
+            <span class="letterName">d</span>
+            <span class="description">kick</span>
+        </button>
+        <button onclick="play(this.getAttribute('key'))" key="f" type="button">
+            <span class="letterName">f</span>
+            <span class="description">openhat</span>
+        </button>
+        <button onclick="play(this.getAttribute('key'))" key="g" type="button">
+            <span class="letterName">g</span>
+            <span class="description">boom</span>
+        </button>
+        <button onclick="play(this.getAttribute('key'))" key="h" type="button">
+            <span class="letterName">h</span>
+            <span class="description">ride</span>
+        </button>
+        <button onclick="play(this.getAttribute('key'))" key="j" type="button">
+            <span class="letterName">j</span>
+            <span class="description">snare</span>
+        </button>
+        <button onclick="play(this.getAttribute('key'))" key="k" type="button">
+            <span class="letterName">k</span>
+            <span class="description">tom</span>
+        </button>
+        <button onclick="play(this.getAttribute('key'))" key="l" type="button">
+            <span class="letterName">l</span>
+            <span class="description">tink</span>
+        </button>
+    </div>
+
+
+
+    <audio key="a" src="sounds/clap.wav"></audio>
+    <audio key="s" src="sounds/hihat.wav"></audio>
+    <audio key="d" src="sounds/kick.wav"></audio>
+    <audio key="f" src="sounds/openhat.wav"></audio>
+    <audio key="g" src="sounds/boom.wav"></audio>
+    <audio key="h" src="sounds/ride.wav"></audio>
+    <audio key="j" src="sounds/snare.wav"></audio>
+    <audio key="k" src="sounds/tom.wav"></audio>
+    <audio key="l" src="sounds/tink.wav"></audio>
+</body>
+<script src="script.js"></script>
+</html>

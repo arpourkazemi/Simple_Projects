@@ -1,0 +1,75 @@
+@media  screen and (max-width:768px) {
+    .container{
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    button{
+        height: 100%!important;
+        width: 100%!important;
+        aspect-ratio: unset!important;
+    }
+}
+
+@media  screen and (min-width:769px) {
+    .container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: url(./images/background.jpg) no-repeat center/ cover;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    width: 90%;
+    height: 80%;
+}
+
+
+button{
+    width: 10%;
+    aspect-ratio: 1/1;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 5px solid black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: all .05s ease;
+}
+
+
+button.active{
+    background-color: rgb(255, 99, 71, 0.2);
+    border-color: tomato;
+    transform: scale(1.2);
+}
+
+.letterName{
+    color: #fff;
+    font-size: 5vmin;
+    text-transform: uppercase;
+}
+
+.description{
+    color: tomato;
+    font-size: 2vmin;
+    text-transform: uppercase;
+}
