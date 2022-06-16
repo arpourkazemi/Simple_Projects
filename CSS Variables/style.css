@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Playball&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playball', cursive;
+}
+
+
+:root{
+    --color: #ff0000;
+    --size: 250px;
+    --blur: 0px;
+}
+
+body{
+    background-color: #444;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+h1{
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 36px;
+    padding: 20px 0;
+}
+
+span{
+    color: var(--color);
+}
+
+label{
+    color: #fff;
+    font-size: 26px;
+    padding: 0 5px 0 70px;
+}
+
+#content{
+    margin-top: 50px;
+    background-color: var(--color);
+    width: var(--size);
+    height: var(--size);
+    filter: blur(var(--blur));
+}
+
+input{
+    width: 200px;
+}

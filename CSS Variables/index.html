@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>CSS Variables</title>
+</head>
+<body>
+    <h1>update <span>css</span> variables with <span>js</span></h1>
+    <div id="controls">
+        <label for="color">Color:</label>
+        <input type="color" name="color" id="color" value="#FF0000">
+    
+        <label for="blur">Blur: <span id="blurValue">0</span></label>
+        <input type="range" name="blur" id="blur" min="0" max="100" value="0" data-suffix="px">
+    
+        <label for="size">Size: <span id="sizeValue">250</span></label>
+        <input type="range" name="size" id="size" min="0" max="500" value="250" data-suffix="px">
+    </div>
+    <div id="content"></div>
+</body>
+
+<script>
+    let inputs = document.querySelectorAll("input");
+    inputs.forEach(input => input.addEventListener("change",updateValues));
+    inputs.forEach(input => input.addEventListener("mousemove",updateValues));
+    
+    function updateValues(){
+        let suffix = this.dataset.suffix || "";
+        document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+        document.getElementById(`${this.name}Value`).textContent = this.value;
+    }
+</script>
+</html>
