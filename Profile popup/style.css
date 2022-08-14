@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Iranian sans,sans-serif;
+}
+
+@font-face {
+    font-family: 'Iranian sans';
+    src: url(../Project_001/fonts/IRANSansWebFaNum_Bold.eot) format('embedded-opentype'),
+        url(../Project_001/fonts/IRANSansWebFaNum_Bold.woff2) format('woff2'),
+        url(../Project_001/fonts/IRANSansWebFaNum_Bold.woff) format('woff'),
+        url(../Project_001/fonts/IRANSansWebFaNum_Bold.ttf) format('truetype');
+}
+
+body{
+    background: #b76e79;
+}
+
+.content{
+    display: flex;
+    margin-top: 25vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile{
+    display: flex;
+    justify-content: center;
+}
+
+.profile img{
+    border-radius: 50%;
+    width: 5%;
+    height: 5%;
+    cursor: pointer;
+}
+.menu::before{
+    content: '';
+    position: absolute;
+    background: white;
+    width: 30px;
+    height: 30px;
+    top: -15px;
+    left: 202px;
+    transform: rotate(45deg);
+}
+.menu{
+    background: white;
+    position: absolute;
+    top: 300px;
+    left: 550px;
+    width: 280px;
+    height: 320px;
+    padding: 40px 0 0 0;
+    border-radius: 15px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease-in-out;
+}
+.menu.active{
+    opacity: 1;
+    transform: translateY(0);
+}
+.menu h1, .menu h3{
+    text-align: center;
+}
+.menu h1{
+    font-size: 20px;
+}
+.menu h3{
+    color: #777;
+    font-size: 10px;
+}
+ul{
+    list-style: none;
+    direction: rtl;
+}
+ul li{
+    direction: rtl;
+    padding: 2%;
+    font-size: 14px;
+}
+ul li i{
+    padding: 0 5%;
+    color: #777;
+}
+ul li:hover{
+    border-right: 10px solid #777;
+    background: rgb(182, 182, 182);
+    color: white;
+    cursor: pointer;
+    
+}
