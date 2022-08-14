@@ -1,0 +1,43 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="button on" onclick="powerButton()">
+            <div class="wheel on">
+
+            </div>
+        </div>
+        <div class="clock">
+            <div class="time-clock">
+                <span id="hour"></span>
+                <span id="colon" class="colon">:</span>
+                <span id="minute"></span>
+                <span class="colon">:</span>
+                <span id="second"></span>
+            </div>
+            <div class="time-date">
+                <span id="year"></span>
+                <span class="slash">/</span>
+                <span id="month"></span>
+                <span class="slash">/</span>
+                <span id="date"></span>
+            </div>
+            <div class="time-name">
+                <span id="monthName"></span>
+                <br>
+                <span id="day"></span>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+
+</html>

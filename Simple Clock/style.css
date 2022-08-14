@@ -1,0 +1,98 @@
+@font-face {
+    font-family: openSans;
+    src: url("../Fonts/OpenSans-Bold.ttf");
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: openSans;
+}
+
+body{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 60vmin;
+}
+
+.button{
+    position: relative;
+    width: 10vmin;
+    height: 5vmin;
+    background-color: black;
+    border-radius: 10vmin;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.button.on{
+    background-color: yellow;
+}
+
+.button .wheel{
+    height: 4vmin;
+    width: 4vmin;
+    background-color: yellow;
+    border-radius: 50%;
+    top: 0.5vmin;
+    left: 5.5vmin;
+    position: absolute;
+    transition: all 0.5s;
+}
+
+.button .wheel.on{
+    background-color: black;
+    left: 0.5vmin;
+}
+
+.clock{
+    width: 40vmin;
+    height: 40vmin;
+    background-color: black;
+    border-radius: 50%;
+    box-shadow: 0 0 50px yellow;
+    display: grid;
+    grid-template-rows: 3fr 2fr 1fr 2fr;
+    justify-content: center;
+}
+
+.time-clock{
+    grid-row: 2/3;
+    text-align: center;
+}
+.time-clock *{
+    color: yellow;
+    font-size: 7vmin;
+}
+
+.time-date{
+    grid-row: 3/4;
+    text-align: center;
+}
+.time-date *{
+    color: #999;
+    font-size: 3vmin;
+}
+
+.time-name{
+    grid-row: 4/-1;
+    text-align: center;
+}
+.time-name *{
+    color: #999;
+    font-size: 2vmin;
+}
+
+span{
+    color: white;
+    /* transition: all 400ms; */
+}
