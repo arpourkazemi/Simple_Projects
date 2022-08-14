@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    direction: rtl;
+}
+
+
+body{
+    background: #130046;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(img/p404.png);
+}
+
+
+h1{
+    color: #fff;
+}
+
+h2{
+    color: #fff;
+}
